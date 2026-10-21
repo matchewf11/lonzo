@@ -48,7 +48,7 @@ Token *lex_string(const char *input, size_t *out) {
                 }
                 tokens[tokens_len++] = (Token) {
                     .kind = IDENT,
-                    .ident = sslice_split_by_fn(&slice, isalpha),
+                    .ident = sslice_chop_while(&slice, isalpha),
                 };
         }
     }

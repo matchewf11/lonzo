@@ -17,6 +17,6 @@ void sslice_triml(StringSlice *sslice);
 
 char *sslice_strndup(const StringSlice *sslice);
 
-StringSlice sslice_split_by_fn(StringSlice *sslice, int check_fn(int));
+StringSlice sslice_chop_while(StringSlice *sslice, int check_fn(int));
 
 #endif

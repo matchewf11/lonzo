@@ -33,7 +33,7 @@ void sslice_triml(StringSlice *sslice) {
     }
 }
 
-StringSlice sslice_split_by_fn(StringSlice *sslice, int check_fn(int)) {
+StringSlice sslice_chop_while(StringSlice *sslice, int check_fn(int)) {
     size_t i = 0;
     while (i < sslice->len && check_fn(sslice->str[i])) {
         i++;

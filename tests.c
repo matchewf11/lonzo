@@ -8,14 +8,14 @@
 #include "lexer.h"
 
 Test(lex) {
-    const char *input = " \t\n()\\.foo.bar jar";
+    const char *input = " \t\n()\\.foob.bar jar";
 
     Token expected[] = {
         { .kind = LPAREN },
         { .kind = RPAREN },
         { .kind = SLASH },
         { .kind = DOT },
-        { .kind = IDENT, .ident = (StringSlice){.str = "foo", .len = 3}},
+        { .kind = IDENT, .ident = (StringSlice){.str = "foob", .len = 4}},
         { .kind = DOT },
         { .kind = IDENT, .ident = (StringSlice){.str = "bar", .len = 3}},
         { .kind = IDENT, .ident = (StringSlice){.str = "jar", .len = 3}},
