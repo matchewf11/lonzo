@@ -1,6 +1,8 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
+#include "sslice.h"
+
 typedef enum {
     LPAREN,
     RPAREN,
@@ -11,7 +13,9 @@ typedef enum {
 
 typedef struct {
     TokenKind kind;
-    union {} as;
+    StringSlice ident;
 } Token;
+
+int token_cmp(const Token *a, const Token *b);
 
 #endif

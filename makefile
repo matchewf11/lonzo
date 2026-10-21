@@ -4,6 +4,9 @@ SRC = sslice.c token.c lexer.c repl.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+$(TARGET): main.c $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) main.c $(SRC)
+
 run: $(TARGET)
 	./$(TARGET)
 
@@ -15,6 +18,3 @@ clean:
 
 tests: tests.c $(SRC)
 	$(CC) $(CFLAGS) -o $(TEST_TARGET) tests.c $(SRC)
-
-$(TARGET): main.c $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) main.c $(SRC)

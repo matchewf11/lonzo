@@ -1,5 +1,7 @@
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "sslice.h"
 
@@ -29,4 +31,21 @@ void sslice_triml(StringSlice *sslice) {
     while (sslice->len > 0 && isspace(sslice->str[0])) {
         sslice_chopl(sslice);
     }
+}
+
+StringSlice sslice_split_by_fn(StringSlice *sslice, int check_fn(int)) {
+    size_t i = 0;
+    while (i < sslice->len && check_fn(sslice->str[i])) {
+        i++;
+    }
+
+    StringSlice result = {
+        .str = sslice->str,
+        .len = i,
+    };
+
+    sslice->len -= i;
+    sslice->str += i;
+
+    return result;
 }

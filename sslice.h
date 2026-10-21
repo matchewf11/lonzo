@@ -1,6 +1,8 @@
 #ifndef SSLICE_H
 #define SSLICE_H
 
+#include <stddef.h>
+
 typedef struct {
     const char *str;
     size_t len;
@@ -14,5 +16,7 @@ void sslice_chopr(StringSlice *sslice);
 void sslice_triml(StringSlice *sslice);
 
 char *sslice_strndup(const StringSlice *sslice);
+
+StringSlice sslice_split_by_fn(StringSlice *sslice, int check_fn(int));
 
 #endif
