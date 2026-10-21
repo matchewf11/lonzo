@@ -43,7 +43,8 @@ Token *lex_string(const char *input, size_t *out) {
                 break;
             default:
                 if (!isalpha(curr)) {
-                    fprintf(stderr, "Unknown char: %c\n", curr);
+                    fprintf(stderr, "Unknown char: %d\n", curr);
+                    sslice_chopl(&slice);
                     break;
                 }
                 tokens[tokens_len++] = (Token) {

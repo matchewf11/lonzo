@@ -18,4 +18,6 @@ typedef struct {
 
 int token_cmp(const Token *a, const Token *b);
 
+void token_display(const Token *token);
+
 #endif
