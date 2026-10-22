@@ -1,6 +1,6 @@
 TARGET = lonzo
 TEST_TARGET = tests
-SRC = sslice.c token.c lexer.c repl.c
+SRC = sslice.c token.c lexer.c repl.c ast.c parser.c sbuilder.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 

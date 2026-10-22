@@ -13,6 +13,8 @@ int token_cmp(const Token *a, const Token *b) {
 }
 
 void token_display(const Token *token) {
+    // TODO: Maybe return a string builder or something?
+
     switch (token->kind) {
         case LPAREN:
             printf("<LPAREN>");
